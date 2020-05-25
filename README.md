@@ -5,11 +5,11 @@ This project was created on 25 MAY 2020 and README file.
 BikeShare Data Analysis
 
 ### Description
-Describe what your project is about and what it does
+It gives statistical analysis based on data of the cities i.e chicago,new york city,washington
 
 ### Files used
-Include the files used
+bikeshare.py,chicago.csv,new_york_city.csv,washington.csv are used to complete this project
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Special thanks to udacity instructors
 
