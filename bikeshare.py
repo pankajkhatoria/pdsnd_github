@@ -6,11 +6,11 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
-valid_cities = ['chicago','new york city','washington']
+VALID_CITIES = ['chicago','new york city','washington']
 
-valid_months = ['january', 'february', 'march', 'april', 'may', 'june']
+VALID_MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
 
-valid_days = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday']
+VALID_DAYS = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday']
 
 def get_filters():
     """
@@ -27,7 +27,7 @@ def get_filters():
         try:
             city = str(input('For which city would you like to see data Chicago, New York City or Washington?\n'))
             city = city.lower()          
-            if city in valid_cities:
+            if city in VALID_CITIES:
                 break
             else:
                 print('Invalid city name! Try again')
@@ -39,7 +39,7 @@ def get_filters():
         try:
             month = input('For which month would you like to see data ? January,February,March,April,May,June. Type \'all\' to see data for all mentioned months\n')
             month = month.lower()
-            if month == 'all' or month in valid_months:
+            if month == 'all' or month in VALID_MONTHS:
                 break
             else:
                 print('Invalid month! Try again')
@@ -51,7 +51,7 @@ def get_filters():
         try:
             day = input('For which day would you like to see data ? Sunday,Monday.....etc. Type \'all\' to see data for all days\n')
             day = day.lower()  
-            if day == 'all' or day in valid_days:
+            if day == 'all' or day in VALID_DAYS:
                 break
             else:
                 print('Invalid day! Try again')
@@ -73,13 +73,15 @@ def load_data(city, month, day):
         df - Pandas DataFrame containing city data filtered by month and day
     """
     df = pd.read_csv(CITY_DATA[city])
+    #changing data type of 'Start Time' column
     df['Start Time'] = pd.to_datetime(df['Start Time'])
+    #creating month,week day,hour columns in dataframe
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     df['hour'] = df['Start Time'].dt.hour
     
     if month != 'all':
-        month = valid_months.index(month) + 1
+        month = VALID_MONTHS.index(month) + 1
         df = df[df['month'] == month]
     if day != 'all':
         df = df[df['day_of_week'] == day.title()]
@@ -95,7 +97,7 @@ def time_stats(df):
 
     # TO DO: display the most common month
     common_month = df['month'].mode()[0]
-    print('\nMost common month of travel: ', valid_months[common_month-1].title())
+    print('\nMost common month of travel: ', VALID_MONTHS[common_month-1].title())
 
     # TO DO: display the most common day of week
     common_day = df['day_of_week'].mode()[0]
