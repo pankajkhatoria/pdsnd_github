@@ -10,7 +10,7 @@ VALID_CITIES = ['chicago','new york city','washington']
 
 VALID_MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
 
-valid_days = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday']
+VALID_DAYS = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday']
 
 def get_filters():
     """
@@ -51,7 +51,7 @@ def get_filters():
         try:
             day = input('For which day would you like to see data ? Sunday,Monday.....etc. Type \'all\' to see data for all days\n')
             day = day.lower()  
-            if day == 'all' or day in valid_days:
+            if day == 'all' or day in VALID_DAYS:
                 break
             else:
                 print('Invalid day! Try again')
