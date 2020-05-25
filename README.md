@@ -11,5 +11,5 @@ It gives statistical analysis based on data of the cities i.e chicago,new york c
 bikeshare.py,chicago.csv,new_york_city.csv,washington.csv are used to complete this project
 
 ### Credits
-Special thanks to udacity instructors
+Special thanks to udacity instructors.StackOverFlow and python official documentation
 
